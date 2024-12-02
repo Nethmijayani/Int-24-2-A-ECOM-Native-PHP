@@ -62,7 +62,7 @@
               <!-- Items will be loaded here dynamically -->
             </tbody>
           </table>
-          <button class="btn-add" onclick="window.location.href='cart.html'">
+          <button class="btn-add" onclick="window.location.href='cart.php'">
             Back
           </button>
         </div>
