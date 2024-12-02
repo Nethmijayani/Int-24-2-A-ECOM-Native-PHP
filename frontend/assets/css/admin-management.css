@@ -1,0 +1,92 @@
+body {
+  background-color: #1e1e1e;
+  padding-bottom: 30px;
+}
+
+.admin-list h3 {
+  color: #c59d5f;
+  padding: 10px;
+}
+
+.custom-btn {
+  box-sizing: border-box;
+  background-color: #c59d5f;
+  font-weight: 500;
+}
+
+.custom-btn:hover {
+  background-color: #fdb560 !important;
+  transition: r 0.3s, color 0.3s !important;
+  border-color: black;
+}
+
+/*add admin modal css*/
+
+.modal-content-custom {
+  background-color: #2d2d2d !important;
+  color: white;
+}
+
+.modal-dialog-custom {
+  max-width: 50%;
+}
+
+.card-style {
+  background-color: #2d2d2d !important;
+  color: white;
+}
+
+.img-style {
+  width: 10rem;
+  height: 10rem;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.list-custom {
+  background-color: #1e1e1e !important;
+}
+
+.card-body {
+  background-color: #2d2d2d !important;
+}
+
+.btn-custom {
+  box-sizing: border-box;
+  background-color: #c59d5f;
+  padding: 5px;
+  width: 100px;
+  font-weight: 500;
+}
+
+.custom-title {
+  box-sizing: border-box;
+}
+
+.button-section {
+  width: 100%;
+  gap: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.container-fluid {
+  margin-left: 300px;
+  padding: 0;
+}
+
+@media (max-width: 768px) {
+  .container-fluid {
+    margin-left: 0;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #adminListContainer {
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+  }
+}
