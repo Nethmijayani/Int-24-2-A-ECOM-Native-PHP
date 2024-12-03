@@ -38,7 +38,7 @@ $(function () {
             response.data.role === "admin" ||
             response.data.role === "super admin"
           ) {
-            window.location.href = "./dashboard.html";
+            window.location.href = "./dashboard.php";
           } else if (response.data.role === "user") {
             window.location.href = "./#menu";
           }
