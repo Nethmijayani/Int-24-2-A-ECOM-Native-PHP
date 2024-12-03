@@ -1,21 +1,4 @@
 $(function () {
-  // Header
-  axios
-    .get("./assets/widgets/header.html")
-    .then((response) => {
-      $("#headerPlaceholder").html(response.data);
-      $("#offcanvasNavbar").css("background-color", "black");
-    })
-    .catch((error) => console.error("Error loading header:", error));
-
-  // Footer
-  axios
-    .get("./assets/widgets/footer.html")
-    .then((response) => {
-      $("#footerPlaceholder").html(response.data);
-    })
-    .catch((error) => console.error("Error loading footer:", error));
-
   //Pizza limit
   let allBeverageData = [];
   let beverageLimit = 3;
@@ -37,9 +20,9 @@ $(function () {
             <div class="card-container">
               <div class="food-card">
                 <div class="image-container">
-                  <img src="http://localhost:5010${
-                    item.item_image
-                  }" alt="${item.item_name}">
+                  <img src="http://localhost:5010${item.item_image}" alt="${
+        item.item_name
+      }">
                   <div class="overlay"><p>${item.item_description}</p></div>
                 </div>
                 <div class="item-name"><h5>${item.item_name}</h5></div>
@@ -76,8 +59,8 @@ $(function () {
     const token = localStorage.getItem("authToken");
 
     if (!token) {
-      localStorage.setItem("redirectAfterLogin", "index.html#menu");
-      window.location.href = "user-reg.html";
+      localStorage.setItem("redirectAfterLogin", "index.php#menu");
+      window.location.href = "user-reg.php";
       return;
     }
 
@@ -105,7 +88,7 @@ $(function () {
       .then((response) => {
         console.log("Response Data:", response);
         alert(`${item.item_name} has been added to your cart.`);
-        window.location.href = "cart.html";
+        window.location.href = "cart.php";
       })
       .catch((error) => {
         console.error(

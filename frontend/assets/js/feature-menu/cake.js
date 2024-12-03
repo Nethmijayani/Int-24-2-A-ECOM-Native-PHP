@@ -1,21 +1,4 @@
 $(function () {
-  // Header
-  axios
-    .get("./assets/widgets/header.html")
-    .then((response) => {
-      $("#headerPlaceholder").html(response.data);
-      $("#offcanvasNavbar").css("background-color", "black");
-    })
-    .catch((error) => console.error("Error loading header:", error));
-
-  // Footer
-  axios
-    .get("./assets/widgets/footer.html")
-    .then((response) => {
-      $("#footerPlaceholder").html(response.data);
-    })
-    .catch((error) => console.error("Error loading footer:", error));
-
   //Cake menu data and limit
   let allCakeData = [];
   let cakeLimit = 3;
@@ -37,9 +20,9 @@ $(function () {
             <div class="card-container">
               <div class="food-card">
                 <div class="image-container">
-                  <img src="http://localhost:5010${
-                    item.item_image
-                  }" alt="${item.item_name}">
+                  <img src="http://localhost:5010${item.item_image}" alt="${
+        item.item_name
+      }">
                   <div class="overlay"><p>${item.item_description}</p></div>
                 </div>
                 <div class="item-name"><h5>${item.item_name}</h5></div>
@@ -67,49 +50,50 @@ $(function () {
     }
   });
 
-  // Handle "Order Now" button
-  function handleAddToCart(event) {
-    const item = JSON.parse($(event.target).attr("data-item"));
-    const token = localStorage.getItem("authToken");
+ // Handle "Order Now" button
+ function handleAddToCart(event) {
+  const item = JSON.parse($(event.target).attr("data-item"));
+  const token = localStorage.getItem("authToken");
 
-    if (!token) {
-      localStorage.setItem("redirectAfterLogin", "index.html#menu");
-      window.location.href = "user-reg.html";
-      return;
-    }
-
-    addToCart(item);
+  if (!token) {
+    localStorage.setItem("redirectAfterLogin", "index.php#menu");
+    window.location.href = "user-reg.php";
+    return;
   }
 
-  // Add item to cart
-  function addToCart(item) {
-    const token = localStorage.getItem("authToken");
-    console.log("Adding item to cart:", item);
-    console.log("Using token:", token);
+  addToCart(item);
+}
 
-    axios
+
+// Add item to cart
+function addToCart(item) {
+  const token = localStorage.getItem("authToken");
+  console.log("Adding item to cart:", item);
+  console.log("Using token:", token);
+
+  axios
       .post(
-        "http://localhost:5010/api/cart/add",
-        { item_id: item.item_id },
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
+          "http://localhost:5010/api/cart/add",
+          { item_id: item.item_id },
+          {
+              headers: {
+                  Authorization: `Bearer ${token}`,
+              },
+          }
       )
-
       .then((response) => {
-        console.log("Response Data:", response);
-        alert(`${item.item_name} has been added to your cart.`);
-        window.location.href = "cart.html";
+          console.log("Response Data:", response);
+          alert(`${item.item_name} has been added to your cart.`);
+          window.location.href = "cart.php"; // Use .php here
       })
       .catch((error) => {
-        console.error(
-          "There was an error adding the item to your cart:",
-          error
-        );
-        const errorMessage = error.responseJSON?.message || "Unknown error";
-        alert(`Error adding item to cart: ${errorMessage}`);
+          console.error(
+              "There was an error adding the item to your cart:",
+              error
+          );
+          const errorMessage = error.responseJSON?.message || "Unknown error";
+          alert(`Error adding item to cart: ${errorMessage}`);
       });
-  }
+}
+
 });

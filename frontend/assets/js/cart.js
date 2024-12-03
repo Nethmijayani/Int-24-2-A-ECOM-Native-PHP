@@ -1,21 +1,4 @@
-$(function () {
-  // Header
-  axios
-    .get("./assets/widgets/header.html")
-    .then((response) => {
-      $("#headerPlaceholder").html(response.data);
-      $("#offcanvasNavbar").css("background-color", "black");
-    })
-    .catch((error) => console.error("Error loading header:", error));
-
-  // Footer
-  axios
-    .get("./assets/widgets/footer.html")
-    .then((response) => {
-      $("#footerPlaceholder").html(response.data);
-    })
-    .catch((error) => console.error("Error loading footer:", error));
-});
+$(function () {});
 
 // Fetch cart items
 async function fetchCartItems() {
@@ -49,9 +32,7 @@ function displayCartItems(items) {
   cartItemsContainer.empty();
 
   if (items.length === 0) {
-    cartItemsContainer.php(
-      "<tr><td colspan='7'>Your cart is empty.</td></tr>"
-    );
+    cartItemsContainer.php("<tr><td colspan='7'>Your cart is empty.</td></tr>");
     return;
   }
 
@@ -146,14 +127,11 @@ async function removeItem(cartItemId) {
   }
 
   try {
-    await axios.delete(
-      `http://localhost:5010/api/cart/delete/${cartItemId}`,
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    );
+    await axios.delete(`http://localhost:5010/api/cart/delete/${cartItemId}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
 
     fetchCartItems();
   } catch (error) {
