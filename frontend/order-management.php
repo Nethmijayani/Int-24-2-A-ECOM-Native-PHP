@@ -17,14 +17,15 @@
     />
     <!-- Custom CSS -->
     <link rel="stylesheet" href="./assets/css/order-management.css" />
-    <link rel="stylesheet" href="./assets/widgets/sidebar.css" />
+    <link rel="stylesheet" href="./assets/js/side-bar/sidebar.css" />
     <!--Bootstrap JS,  jQuery and Axios -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
   <body>
-    <common-sidebar></common-sidebar>
+    <!-- <common-sidebar></common-sidebar> -->
+    <?php include './assets/js/side-bar/sidebar.php';?>
 
     <div class="content">
       <div class="container mt-5">

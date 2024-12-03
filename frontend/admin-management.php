@@ -12,7 +12,7 @@
     />
 
     <link rel="stylesheet" href="./assets/css/admin-management.css" />
-    <link rel="stylesheet" href="./assets/widgets/sidebar.css" />
+    <link rel="stylesheet" href="./assets/js/side-bar/sidebar.css" />
 
     <script
       src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -26,7 +26,8 @@
     <script src="./assets/js/admin-management.js"></script>
   </head>
   <body>
-    <common-sidebar></common-sidebar>
+    <!-- <common-sidebar></common-sidebar> -->
+    <?php include './assets/js/side-bar/sidebar.php';?>
 
     <div class="container-fluid">
       <div class="row">
