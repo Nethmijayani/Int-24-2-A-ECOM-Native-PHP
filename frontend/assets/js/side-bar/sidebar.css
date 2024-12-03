@@ -1,0 +1,129 @@
+/* Sidebar styles */
+.sidebar {
+  background-color: black;
+  width: 250px;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 4px;
+}
+
+.sidebar .logo {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.sidebar .logo-img {
+  width: 160px;
+  height: auto;
+  margin-top: 40px;
+}
+
+.nav-links {
+  margin-top: 60px;
+}
+
+.nav-link {
+  color: white;
+  padding: 13px;
+  margin: 0 0 10px 0;
+  display: block;
+  border: 2px solid white;
+  text-indent: 70px;
+  text-decoration: none;
+  border-radius: 10px;
+  width: 240px;
+  height: 55px;
+}
+
+.nav-link:hover {
+  background-color: #c59d5f;
+  color: black;
+  font-weight: bold;
+}
+
+.nav-link.active {
+  background-color: #c59d5f;
+  color: black;
+  font-weight: bold;
+}
+
+/* Toggle Button */
+.toggle-container {
+  padding-left: 0;
+  border: none;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1000;
+  margin-right: 20px;
+}
+
+.toggle-btn {
+  color: #c59d5f;
+  cursor: pointer;
+  display: none;
+  background-color: transparent;
+  font-size: 24px;
+  font-weight: bolder;
+  border: 1px solid #c59d5f;
+  padding: 5px;
+  box-shadow: none;
+  z-index: 1000;
+}
+
+/* Main content */
+.content {
+  padding: 10px;
+  margin: 10px 10px 10px 0;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* Media Query for small screens */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 0;
+    padding: 0;
+    overflow: hidden;
+    margin: 0;
+  }
+
+  .sidebar.show {
+    width: 250px;
+    padding: 4px;
+    z-index: 1000;
+    overflow-y: hidden;
+    position: fixed;
+  }
+
+  .content {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+  }
+
+  .toggle-btn {
+    display: block;
+    z-index: 1000;
+  }
+  .nav-links {
+    margin-top: 20px;
+  }
+  .sidebar .logo {
+    text-align: center;
+    margin-bottom: 0;
+  }
+  .sidebar .logo-img {
+    width: 140px;
+    height: auto;
+    margin: 30px 0 35px 0;
+  }
+  body {
+    overflow-x: hidden;
+  }
+}
