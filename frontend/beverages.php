@@ -38,7 +38,7 @@
     </div>
 
     <!--Features section-->
-    <feature-section></feature-section>
+    <?php include 'feature-bev.php'; ?>
 
     <!-- Pizza Menu Section -->
     <div class="container my-5">
