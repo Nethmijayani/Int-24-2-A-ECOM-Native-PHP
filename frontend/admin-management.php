@@ -1,3 +1,8 @@
+<?php
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -16,6 +21,10 @@
 
     <script
       src="https://code.jquery.com/jquery-3.6.0.min.js"
+      
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
       crossorigin="anonymous"
     ></script>
 
@@ -33,7 +42,7 @@
           <h3>Admin List</h3>
 
           <div id="adminListContainer" class="d-flex flex-wrap gap-3">
-            <!--Admin list will dispaly here-->
+            <!--Admin list will display here-->
           </div>
 
           <button id="addAdminButton" class="btn custom-btn mt-5">
