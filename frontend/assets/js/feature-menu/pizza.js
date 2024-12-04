@@ -42,9 +42,9 @@ $(function () {
 
   // Load more items
   $("#viewMoreBtn").on("click", function () {
-    const additionalItems = allPizzaData.slice(pizzaLimit, pizzaLimit + 8);
+    const additionalItems = allPizzaData.slice(pizzaLimit, pizzaLimit + 6);
     displayPizzaItems(additionalItems);
-    pizzaLimit += 8;
+    pizzaLimit += 6;
     if (pizzaLimit >= allPizzaData.length) {
       $("#viewMoreBtn").hide();
     }
