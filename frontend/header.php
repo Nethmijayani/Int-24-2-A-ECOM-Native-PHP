@@ -76,6 +76,17 @@
       .navbar-icons li {
         margin-left: 10px;
       }
+      .dropdown-menu {
+      background-color: #000000 !important;
+      }
+      .dropdown-item {
+      color: #c59d5f !important;
+      background-color: #000000 !important;
+      }
+      .dropdown-item:hover {
+      color: #ffffff !important;
+      background-color: #c59d5f;
+      }
 
       /* Styling for mobile view */
       @media (max-width: 991px) {
@@ -120,9 +131,29 @@
               <li class="nav-item">
                 <a class="nav-link mx-lg-2" href="./#about">About Us</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link mx-lg-2" href="./#menu">Menu</a>
-              </li>
+              <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle mx-lg-2"
+                href="#"
+                id="menuDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Menu
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="menuDropdown">
+                <li>
+                  <a class="dropdown-item" href="./pizza.php">Pizza</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="./cake.php">Cake</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="./beverages.php">Beverages</a>
+                </li>
+              </ul>
+            </li>
               <li class="nav-item">
                 <a class="nav-link mx-lg-2" href="./#promotion">Promotion</a>
               </li>
