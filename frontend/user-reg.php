@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -25,7 +29,7 @@
     />
 
     <link rel="stylesheet" href="./assets/css/user-reg.css" />
-    <link rel="stylesheet" href="./assets/styles/reg-success.css" />
+    <link rel="stylesheet" href="./assets/css/reg-success.css" />
     <script
       src="https://code.jquery.com/jquery-3.6.0.min.js"
       crossorigin="anonymous"
