@@ -1,21 +1,4 @@
 $(function () {
-  // Header
-  axios
-    .get("./assets/widgets/header.html")
-    .then((response) => {
-      $("#headerPlaceholder").html(response.data);
-      $("#offcanvasNavbar").css("background-color", "black");
-    })
-    .catch((error) => console.error("Error loading header:", error));
-
-  // Footer
-  axios
-    .get("./assets/widgets/footer.html")
-    .then((response) => {
-      $("#footerPlaceholder").html(response.data);
-    })
-    .catch((error) => console.error("Error loading footer:", error));
-
   //Pizza limit
   let allBeverageData = [];
   let beverageLimit = 3;
@@ -77,7 +60,7 @@ $(function () {
 
     if (!token) {
       localStorage.setItem("redirectAfterLogin", "index.html#menu");
-      window.location.href = "user-reg.html";
+      window.location.href = "user-reg.php";
       return;
     }
 
@@ -105,7 +88,7 @@ $(function () {
       .then((response) => {
         console.log("Response Data:", response);
         alert(`${item.item_name} has been added to your cart.`);
-        window.location.href = "cart.html";
+        window.location.href = "cart.php";
       })
       .catch((error) => {
         console.error(
