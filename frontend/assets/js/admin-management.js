@@ -6,15 +6,18 @@ $(function () {
     }
   );
 
+  const authToken = sessionStorage.getItem("authToken");
+  //const role = sessionStorage.getItem("role");
+
   async function fetchAdmins() {
     try {
-      const token = localStorage.getItem("authToken");
+      
 
       const response = await axios.get(
         "http://localhost:5010/api/auth/admins",
         {
           headers: {
-            Authorization: `Bearer ${token}`,
+            Authorization: `Bearer ${authToken}`,
             "Content-Type": "application/json",
           },
         }
@@ -128,7 +131,7 @@ $(function () {
       axios
         .post("http://localhost:5010/api/auth/add-admin", formData, {
           headers: {
-            Authorization: "Bearer " + localStorage.getItem("authToken"),
+            Authorization: `Bearer ${authToken}`,
             "Content-Type": "multipart/form-data",
           },
         })
@@ -156,7 +159,7 @@ $(function () {
       axios
         .delete(`http://localhost:5010/api/auth/admins/${adminId}`, {
           headers: {
-            Authorization: "Bearer " + localStorage.getItem("authToken"),
+            Authorization: `Bearer ${authToken}`,
           },
         })
         .then((response) => {
