@@ -105,7 +105,7 @@ $(function () {
       .then((response) => {
         console.log("Response Data:", response);
         alert(`${item.item_name} has been added to your cart.`);
-        window.location.href = "cart.html";
+        window.location.href = "cart.php";
       })
       .catch((error) => {
         console.error(

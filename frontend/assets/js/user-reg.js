@@ -52,8 +52,13 @@ $(function () {
       .then(function (response) {
         console.log("Response from server:", response.data);
 
-        $("#success-modal-content").load("./reg-success.html", function () {
-          $("#successModal").modal("show");
+        $.post("../frontend/store-sessions.php", {
+          username: $("#username").val(),
+          email: $("#email").val(),
+        }).done(function () {
+          $("#success-modal-content").load("reg-success.php", function () {
+            $("#successModal").modal("show");
+          });
         });
       })
       .catch(function (error) {
