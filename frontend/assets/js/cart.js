@@ -1,6 +1,4 @@
-$(function () {
-
-});
+$(function () {});
 
 // Fetch cart items
 async function fetchCartItems() {
@@ -34,9 +32,7 @@ function displayCartItems(items) {
   cartItemsContainer.empty();
 
   if (items.length === 0) {
-    cartItemsContainer.php(
-      "<tr><td colspan='7'>Your cart is empty.</td></tr>"
-    );
+    cartItemsContainer.php("<tr><td colspan='7'>Your cart is empty.</td></tr>");
     return;
   }
 
@@ -131,14 +127,11 @@ async function removeItem(cartItemId) {
   }
 
   try {
-    await axios.delete(
-      `http://localhost:5010/api/cart/delete/${cartItemId}`,
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    );
+    await axios.delete(`http://localhost:5010/api/cart/delete/${cartItemId}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
 
     fetchCartItems();
   } catch (error) {
