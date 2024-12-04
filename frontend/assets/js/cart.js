@@ -189,7 +189,7 @@ async function passItemsToCheckout() {
     );
 
     alert("Items transferred to checkout successfully!");
-    window.location.href = "checkout.html";
+    window.location.href = "checkout.php";
   } catch (error) {
     console.error("Error transferring items to checkout:", error);
     alert("An error occurred while transferring items. Please try again.");
