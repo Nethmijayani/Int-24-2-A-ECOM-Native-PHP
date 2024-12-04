@@ -50,5 +50,5 @@
 //   }
 // }
 
-customElements.define("common-sidebar", commonSidebar);
+// customElements.define("common-sidebar", commonSidebar);
 </script>

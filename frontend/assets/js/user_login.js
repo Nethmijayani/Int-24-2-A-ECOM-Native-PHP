@@ -28,25 +28,36 @@ $(function () {
         password,
       })
       .then(function (response) {
-        if (response.status === 200) {
-          localStorage.setItem("authToken", response.data.token);
-          localStorage.setItem("role", response.data.role);
+        sessionStorage.setItem("authToken", response.data.token);
+        sessionStorage.setItem("role", response.data.role);
 
-          alert("Login successful!");
-
-          if (
-            response.data.role === "admin" ||
-            response.data.role === "super admin"
-          ) {
-            window.location.href = "./dashboard.html";
-          } else if (response.data.role === "user") {
-            window.location.href = "./#menu";
+        // Send token and role to PHP for server-side session storage
+        $.post("store-sessions.php", {
+          authToken: response.data.token,
+          role: response.data.role,
+          username: response.data.username,
+        }).done(function (data) {
+          console.log("Response from server:", data);
+          if (data.success) {
+            alert("Login Successfully!");
+            console.log("Login session stored successfully.");
+            // Redirect based on role
+            if (
+              response.data.role === "admin" ||
+              response.data.role === "super admin"
+            ) {
+              window.location.href = "./dashboard.php";
+            } else {
+              window.location.href = "./#menu";
+            }
+          } else {
+            alert("Failed to set login session.");
           }
-        }
+        });
       })
       .catch(function (error) {
         console.error("Error:", error);
-        $("#failed-modal-container").load("./log-fail.html", function () {
+        $("#failed-modal-container").load("./log-fail.php", function () {
           $("#failModal").modal("show");
         });
       });

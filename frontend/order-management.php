@@ -119,12 +119,11 @@
       </div>
     </div>
 
-    <script src="./assets/widgets/sidebar.php"></script>
     <script>
       async function fetchOrdersFromBackend() {
         try {
           const response = await axios.get(
-            "https://ecom-back-t1.netfy.app/api/orders/admin/orders",
+            "http://localhost:5010/api/orders/admin/orders",
             {
               headers: {
                 Authorization: `Bearer ${localStorage.getItem("authToken")}`,
@@ -168,7 +167,7 @@
       async function fetchOrderDetails(orderId) {
         try {
           const response = await axios.get(
-            `https://ecom-back-t1.netfy.app/api/orders/order-details/${orderId}`,
+            `http://localhost:5010/api/orders/order-details/${orderId}`,
             {
               headers: {
                 Authorization: `Bearer ${localStorage.getItem("authToken")}`,
@@ -254,7 +253,7 @@
       async function updateOrderStatus(orderId, newStatus) {
         try {
           const response = await axios.put(
-            `https://ecom-back-t1.netfy.app/api/orders/admin/order-status/${orderId}`,
+            `http://localhost:5010/api/orders/admin/order-status/${orderId}`,
             { newStatus },
             {
               headers: {
@@ -308,7 +307,7 @@
               }
 
               const response = await axios.delete(
-                `https://ecom-back-t1.netfy.app/api/orders/admin/delete/${orderId}`,
+                `http://localhost:5010/api/orders/admin/delete/${orderId}`,
                 {
                   headers: {
                     Authorization: `Bearer ${authToken}`,
