@@ -39,21 +39,32 @@
   <?php include 'header.php'; ?>
 
   <!--Welcome section-->
-  <div
+  <!-- Create an array with section data -->
+  <?php
+  $carouselItems = [
+    ['image' => './assets/images/bg1.jpg', 'subHeading' => 'Delicious Meals', 'description' => 'Freshly prepared, right to your door.'],
+    ['image' => './assets/images/bg2.jpg', 'subHeading' => 'Satisfy Your Cravings', 'description' => 'Discover a variety of flavors.'],
+    ['image' => './assets/images/bg3.jpg', 'subHeading' => 'Quality Ingredients', 'description' => 'For meals that make you feel good.'],
+  ];
+  ?>
+
+<!-- Create carousel and access array data -->
+<div
     id="yumzyCarousel"
     class="carousel slide carousel-fade"
     data-bs-ride="carousel">
     <div class="carousel-inner">
-      <div class="carousel-item active">
+      <?php foreach($carouselItems as $index => $item):?>
+      <div class="carousel-item <?php echo $index==0 ? 'active': ''; ?>">
         <img
-          src="./assets/images/bg1.jpg"
+          src="<?php echo $item['image'];?>"
           class="d-block w-100 zoom-image"
           alt="welcome-image1" />
         <div class="carousel-caption">
           <h2>Welcome To</h2>
           <h1>YumZy</h1>
-          <h5>Delicious Meals</h5>
-          <p>Freshly prepared, right to your door.</p>
+          <h5><?php echo $item['subHeading'];?></h5>
+          <p><?php echo $item['description'];?></p>
           <br />
           <p style="font-family: 'Caveat', cursive; margin-top: 50px">
             your go-to spot for delicious meals and treats delivered with
@@ -68,55 +79,8 @@
           </p>
         </div>
       </div>
-      <div class="carousel-item">
-        <img
-          src="./assets/images/bg2.jpg"
-          class="d-block w-100 zoom-image"
-          alt="welcome-image2" />
-        <div class="carousel-caption">
-          <h2>Welcome To</h2>
-          <h1>YumZy</h1>
-          <h5>Satisfy Your Cravings</h5>
-          <p>Discover a variety of flavors.</p>
-          <br />
-          <p style="font-family: 'Caveat', cursive; margin-top: 50px">
-            your go-to spot for delicious meals and treats delivered with
-            ease! Craving something specific? Dive into our menu, featuring
-            everything from sizzling pizzas to satisfy your cheesy cravings,
-            to indulgent cakes for that sweet fix, and refreshing beverages to
-            quench your thirst. With Yumzy, you’ll find top-quality flavors
-            crafted from the freshest ingredients, all available with just a
-            few clicks. Our fast delivery ensures your meal arrives hot and
-            fresh, ready to enjoy anytime. Treat yourself today and let Yumzy
-            make every meal moment unforgettable!
-          </p>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <img
-          src="./assets/images/bg3.jpg"
-          class="d-block w-100 zoom-image"
-          alt="welcome-image3" />
-        <div class="carousel-caption">
-          <h2>Welcome To</h2>
-          <h1>YumZy</h1>
-          <h5>Quality Ingredients</h5>
-          <p>For meals that make you feel good.</p>
-          <br />
-          <p style="font-family: 'Caveat', cursive; margin-top: 50px">
-            your go-to spot for delicious meals and treats delivered with
-            ease! Craving something specific? Dive into our menu, featuring
-            everything from sizzling pizzas to satisfy your cheesy cravings,
-            to indulgent cakes for that sweet fix, and refreshing beverages to
-            quench your thirst. With Yumzy, you’ll find top-quality flavors
-            crafted from the freshest ingredients, all available with just a
-            few clicks. Our fast delivery ensures your meal arrives hot and
-            fresh, ready to enjoy anytime. Treat yourself today and let Yumzy
-            make every meal moment unforgettable!
-          </p>
-        </div>
-      </div>
-    </div>
+      <?php endforeach;?>
+    </div>         
 
     <button
       class="carousel-control-prev"
@@ -220,64 +184,42 @@
     </div>
   </section>
 
-  <!-- Menu Section -->
+  <!-- Menu Section -->   
+   <!-- An array with card data -->
+  <?php
+  $menuItems = [
+    ['title' => 'Pizza', 'image' => './assets/images/menu-pizza.jpg', 'link' => './pizza.php'],
+    ['title' => 'Cakes', 'image' => './assets/images/menu-cake.jpg', 'link' => './cake.php'],
+    ['title' => 'Beverages', 'image' => './assets/images/menu-beverages.jpg', 'link' => './beverages.php'],
+  ];
+  ?>
+
+  <!-- Create cards and access array -->
   <section class="our-menu">
-    <div class="container" id="menu">
-      <div class="menutopic text-center">
+  <div class="container" id="menu">
+    <div class="menutopic text-center">
         <h2>Our Menu</h2>
-      </div>
-      <div
-        class="row justify-content-center align-items-center row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 mt-3">
-        <!-- Pizza -->
+    </div>
+    <div class="row justify-content-center align-items-center row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 mt-3">
+      <?php foreach($menuItems as $item):?>
         <div class="col d-flex justify-content-center">
           <div class="menu-card text-center" id="pizzaCard">
             <div class="card-img-container">
               <img
-                src="./assets/images/menu-pizza.jpg"
+                src="<?php echo $item['image'];?>"
                 class="card-img-top img-fluid"
-                alt="pizza" />
+                alt="<?php echo $item['title'];?>" />
             </div>
             <div class="card-body">
-              <a href="./pizza.php">
-                <button class="btn btn-warning">Pizza</button>
+              <a href="<?php echo $item['link'];?>">
+                <button class="btn btn-warning"><?php echo $item['title'];?></button>
               </a>
             </div>
           </div>
-        </div>
-        <!-- Cake -->
-        <div class="col d-flex justify-content-center">
-          <div class="menu-card text-center" id="cakeCard">
-            <div class="card-img-container">
-              <img
-                src="./assets/images/menu-cake.jpg"
-                class="card-img-top img-fluid"
-                alt="cake" />
-            </div>
-            <div class="card-body">
-              <a href="./cake.php">
-                <button class="btn btn-warning">Cakes</button>
-              </a>
-            </div>
-          </div>
-        </div>
-        <!-- Beverages-->
-        <div class="col d-flex justify-content-center">
-          <div class="menu-card text-center" id="beverageCard">
-            <div class="card-img-container">
-              <img
-                src="./assets/images/menu-beverages.jpg"
-                class="card-img-top img-fluid"
-                alt="beverage" />
-            </div>
-            <div class="card-body">
-              <a href="./beverages.php">
-                <button class="btn btn-warning">Beverages</button>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
+        </div> 
+        <?php endforeach;?>   
     </div>
+  </div>
   </section>
 
   <section class="container offer-section height-100vh">
@@ -294,7 +236,15 @@
   <!-- Footer Section -->
   <?php include 'footer.php'; ?>
 
+  <script src="./assets/js/promotion.js"></script>
+  <script src="./assets/js/contact.js"></script>
 
+  <script>
+    //For read more content
+  function toggleContent() {
+    $(".additional-content").toggle();
+  }
+  </script>
 </body>
 
 </html>
