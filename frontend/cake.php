@@ -46,9 +46,6 @@
 
       <!-- Navigation Buttons -->
       <div class="button-container">
-        <a href="./index.php#menu" class="btn btn-secondary-previous">
-          &laquo; Previous
-        </a>
         <a id="viewMoreBtn" class="btn btn-secondary-next"> Next &raquo; </a>
       </div>
     </div>
