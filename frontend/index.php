@@ -48,39 +48,39 @@
   ];
   ?>
 
-<!-- Create carousel and access array data -->
-<div
+  <!-- Create carousel and access array data -->
+  <div
     id="yumzyCarousel"
     class="carousel slide carousel-fade"
     data-bs-ride="carousel">
     <div class="carousel-inner">
-      <?php foreach($carouselItems as $index => $item):?>
-      <div class="carousel-item <?php echo $index==0 ? 'active': ''; ?>">
-        <img
-          src="<?php echo $item['image'];?>"
-          class="d-block w-100 zoom-image"
-          alt="welcome-image1" />
-        <div class="carousel-caption">
-          <h2>Welcome To</h2>
-          <h1>YumZy</h1>
-          <h5><?php echo $item['subHeading'];?></h5>
-          <p><?php echo $item['description'];?></p>
-          <br />
-          <p style="font-family: 'Caveat', cursive; margin-top: 50px">
-            your go-to spot for delicious meals and treats delivered with
-            ease! Craving something specific? Dive into our menu, featuring
-            everything from sizzling pizzas to satisfy your cheesy cravings,
-            to indulgent cakes for that sweet fix, and refreshing beverages to
-            quench your thirst. With Yumzy, you’ll find top-quality flavors
-            crafted from the freshest ingredients, all available with just a
-            few clicks. Our fast delivery ensures your meal arrives hot and
-            fresh, ready to enjoy anytime. Treat yourself today and let Yumzy
-            make every meal moment unforgettable!
-          </p>
+      <?php foreach ($carouselItems as $index => $item): ?>
+        <div class="carousel-item <?php echo $index == 0 ? 'active' : ''; ?>">
+          <img
+            src="<?php echo $item['image']; ?>"
+            class="d-block w-100 zoom-image"
+            alt="welcome-image1" />
+          <div class="carousel-caption">
+            <h2>Welcome To</h2>
+            <h1>YumZy</h1>
+            <h5><?php echo $item['subHeading']; ?></h5>
+            <p><?php echo $item['description']; ?></p>
+            <br />
+            <p style="font-family: 'Caveat', cursive; margin-top: 50px">
+              your go-to spot for delicious meals and treats delivered with
+              ease! Craving something specific? Dive into our menu, featuring
+              everything from sizzling pizzas to satisfy your cheesy cravings,
+              to indulgent cakes for that sweet fix, and refreshing beverages to
+              quench your thirst. With Yumzy, you’ll find top-quality flavors
+              crafted from the freshest ingredients, all available with just a
+              few clicks. Our fast delivery ensures your meal arrives hot and
+              fresh, ready to enjoy anytime. Treat yourself today and let Yumzy
+              make every meal moment unforgettable!
+            </p>
+          </div>
         </div>
-      </div>
-      <?php endforeach;?>
-    </div>         
+      <?php endforeach; ?>
+    </div>
 
     <button
       class="carousel-control-prev"
@@ -184,8 +184,8 @@
     </div>
   </section>
 
-  <!-- Menu Section -->   
-   <!-- An array with card data -->
+  <!-- Menu Section -->
+  <!-- An array with card data -->
   <?php
   $menuItems = [
     ['title' => 'Pizza', 'image' => './assets/images/menu-pizza.jpg', 'link' => './pizza.php'],
@@ -196,42 +196,41 @@
 
   <!-- Create cards and access array -->
   <section class="our-menu">
-  <div class="container" id="menu">
-    <div class="menutopic text-center">
+    <div class="container" id="menu">
+      <div class="menutopic text-center">
         <h2>Our Menu</h2>
-    </div>
-    <div class="row justify-content-center align-items-center row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 mt-3">
-      <?php foreach($menuItems as $item):?>
-        <div class="col d-flex justify-content-center">
-          <div class="menu-card text-center" id="pizzaCard">
-            <div class="card-img-container">
-              <img
-                src="<?php echo $item['image'];?>"
-                class="card-img-top img-fluid"
-                alt="<?php echo $item['title'];?>" />
-            </div>
-            <div class="card-body">
-              <a href="<?php echo $item['link'];?>">
-                <button class="btn btn-warning"><?php echo $item['title'];?></button>
-              </a>
+      </div>
+      <div class="row justify-content-center align-items-center row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 mt-3">
+        <?php foreach ($menuItems as $item): ?>
+          <div class="col d-flex justify-content-center">
+            <div class="menu-card text-center" id="pizzaCard">
+              <div class="card-img-container">
+                <img
+                  src="<?php echo $item['image']; ?>"
+                  class="card-img-top img-fluid"
+                  alt="<?php echo $item['title']; ?>" />
+              </div>
+              <div class="card-body">
+                <a href="<?php echo $item['link']; ?>">
+                  <button class="btn btn-warning"><?php echo $item['title']; ?></button>
+                </a>
+              </div>
             </div>
           </div>
-        </div> 
-        <?php endforeach;?>   
+        <?php endforeach; ?>
+      </div>
     </div>
-  </div>
   </section>
 
   <section class="container offer-section height-100vh">
-      <div id="promotion">
-        <h2 class="text-center pt-2">Special Offers</h2>
+    <div id="promotion">
+      <h2 class="text-center pt-2">Special Offers</h2>
 
-        <div
-          id="offerList"
-          class="d-flex flex-wrap gap-3 justify-content-center"
-        ></div>
-      </div>
-    </section>
+      <div
+        id="offerList"
+        class="d-flex flex-wrap gap-3 justify-content-center"></div>
+    </div>
+  </section>
 
   <!-- Footer Section -->
   <?php include 'footer.php'; ?>
@@ -241,9 +240,9 @@
 
   <script>
     //For read more content
-  function toggleContent() {
-    $(".additional-content").toggle();
-  }
+    function toggleContent() {
+      $(".additional-content").toggle();
+    }
   </script>
 </body>
 
