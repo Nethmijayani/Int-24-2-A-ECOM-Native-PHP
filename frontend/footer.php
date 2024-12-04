@@ -196,8 +196,8 @@
         </div>
 
         <div class="footer-bottom">
-          <p>&copy; 2024 Your YumZy . All rights reserved.</p>
-        </div>
+                <p>&copy; <?php echo date("Y"); ?> Your YumZy. All rights reserved.</p>
+            </div>
       </div>
     </footer>
 

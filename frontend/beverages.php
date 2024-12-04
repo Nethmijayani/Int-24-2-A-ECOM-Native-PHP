@@ -46,19 +46,14 @@
 
       <!-- buttons left and right -->
       <div class="button-container">
-        <a href="./index.php#menu" class="btn btn-secondary-previous">
-          &laquo; Previous
-        </a>
         <a id="viewMoreBtn" class="btn btn-secondary-next"> Next &raquo; </a>
       </div>
     </div>
 
     <?php include 'footer.php'; ?>
 
-    <script src="./assets/js/feature-menu/feature-bev.js"></script>
     <script src="./assets/js/feature-menu/beverages.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="./assets/widgets/contact.js"></script>
   </body>
 </html>
