@@ -17,14 +17,15 @@
     />
     <!-- Custom CSS -->
     <link rel="stylesheet" href="./assets/css/order-management.css" />
-    <link rel="stylesheet" href="./assets/widgets/sidebar.css" />
+    <link rel="stylesheet" href="./assets/js/side-bar/sidebar.css" />
     <!--Bootstrap JS,  jQuery and Axios -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
   <body>
-    <common-sidebar></common-sidebar>
+    <!-- <common-sidebar></common-sidebar> -->
+    <?php include './assets/js/side-bar/sidebar.php';?>
 
     <div class="content">
       <div class="container mt-5">
@@ -118,12 +119,11 @@
       </div>
     </div>
 
-    <script src="./assets/widgets/sidebar.php"></script>
     <script>
       async function fetchOrdersFromBackend() {
         try {
           const response = await axios.get(
-            "https://ecom-back-t1.netfy.app/api/orders/admin/orders",
+            "http://localhost:5010/api/orders/admin/orders",
             {
               headers: {
                 Authorization: `Bearer ${localStorage.getItem("authToken")}`,
@@ -167,7 +167,7 @@
       async function fetchOrderDetails(orderId) {
         try {
           const response = await axios.get(
-            `https://ecom-back-t1.netfy.app/api/orders/order-details/${orderId}`,
+            `http://localhost:5010/api/orders/order-details/${orderId}`,
             {
               headers: {
                 Authorization: `Bearer ${localStorage.getItem("authToken")}`,
@@ -253,7 +253,7 @@
       async function updateOrderStatus(orderId, newStatus) {
         try {
           const response = await axios.put(
-            `https://ecom-back-t1.netfy.app/api/orders/admin/order-status/${orderId}`,
+            `http://localhost:5010/api/orders/admin/order-status/${orderId}`,
             { newStatus },
             {
               headers: {
@@ -307,7 +307,7 @@
               }
 
               const response = await axios.delete(
-                `https://ecom-back-t1.netfy.app/api/orders/admin/delete/${orderId}`,
+                `http://localhost:5010/api/orders/admin/delete/${orderId}`,
                 {
                   headers: {
                     Authorization: `Bearer ${authToken}`,

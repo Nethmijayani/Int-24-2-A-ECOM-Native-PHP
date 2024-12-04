@@ -11,10 +11,10 @@
           class="logo-img" />
       </div>
       <div class="nav-links">
-        <a href="/frontend/dashboard.php" class="nav-link">Dashboard</a>
-        <a href="/frontend/item-management.php" class="nav-link">Items</a>
-        <a href="/frontend/order-management.php" class="nav-link">Orders</a>
-        <a href="/frontend/admin-management.php" class="nav-link">Admin</a>
+        <a href="../frontend/dashboard.php" class="nav-link">Dashboard</a>
+        <a href="../frontend/item-management.php" class="nav-link">Items</a>
+        <a href="../frontend/order-management.php" class="nav-link">Orders</a>
+        <a href="../frontend/admin-management.php" class="nav-link">Admin</a>
       </div>
     </div>
 
@@ -32,10 +32,10 @@
 
       const currentPage = window.location.pathname;
 
-      const dashboardLink = $('.nav-link[href="/frontend/dashboard.php"]');
-      const itemsLink = $('.nav-link[href="/frontend/item-management.php"]');
-      const ordersLink = $('.nav-link[href="/frontend/order-management.php"]');
-      const adminLink = $('.nav-link[href="/frontend/admin-management.php"]');
+      const dashboardLink = $('.nav-link[href="../frontend/dashboard.php"]');
+      const itemsLink = $('.nav-link[href="../frontend/item-management.php"]');
+      const ordersLink = $('.nav-link[href="../frontend/order-management.php"]');
+      const adminLink = $('.nav-link[href="../frontend/admin-management.php"]');
 
       if (currentPage.includes("dashboard.php")) {
         dashboardLink.addClass("active");
@@ -50,5 +50,5 @@
 //   }
 // }
 
-customElements.define("common-sidebar", commonSidebar);
+// customElements.define("common-sidebar", commonSidebar);
 </script>

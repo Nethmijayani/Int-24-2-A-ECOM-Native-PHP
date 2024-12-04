@@ -38,9 +38,7 @@
     ></script>
 
     <link rel="stylesheet" href="./assets/css/item-management.css" />
-    <link rel="stylesheet" href="./assets/widgets/sidebar.css" />
-
-    <script src="./assets/widgets/sidebar.php"></script>
+    <link rel="stylesheet" href="./assets/js/side-bar/sidebar.css" />
   </head>
   <body
     style="
@@ -49,7 +47,8 @@
       height: 100%;
     "
   >
-    <common-sidebar></common-sidebar>
+    <!-- <common-sidebar></common-sidebar> -->
+    <?php include './assets/js/side-bar/sidebar.php';?>
 
     <section class="p-3">
       <div class="row">
