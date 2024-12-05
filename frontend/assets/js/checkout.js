@@ -4,7 +4,7 @@ let selectedCartItemIds = [];
 let cart_id = null;
 
 async function displaySelectedItems() {
-  const token = localStorage.getItem("authToken");
+  const token = sessionStorage.getItem("authToken");
   if (!token) {
     $("#checkout-error").text("Authentication required. Please log in again.");
     return;
@@ -138,7 +138,7 @@ async function displaySelectedItems() {
 }
 
 async function removeItem(cartItemId) {
-  const token = localStorage.getItem("authToken");
+  const token = sessionStorage.getItem("authToken");
   if (!token) {
     $("#checkout-error").text("Authentication required. Please log in again.");
     return;
@@ -182,7 +182,7 @@ $("#checkoutButton").on("click", async function () {
     cart_id,
   };
 
-  const token = localStorage.getItem("authToken");
+  const token = sessionStorage.getItem("authToken");
   if (!token) {
     $("#checkout-error").text("Authentication required. Please log in again.");
     return;

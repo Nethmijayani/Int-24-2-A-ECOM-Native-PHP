@@ -2,7 +2,7 @@ $(function () {});
 
 // Fetch cart items
 async function fetchCartItems() {
-  const token = localStorage.getItem("authToken");
+  const token = sessionStorage.getItem("authToken");
 
   if (!token) {
     $("#cart-message").text("You need to log in to view your cart.");
@@ -83,7 +83,7 @@ function updateOrderSummary() {
 
 // Change item quantity
 async function changeQuantity(cartItemId, change) {
-  const token = localStorage.getItem("authToken");
+  const token = sessionStorage.getItem("authToken");
   if (!token) {
     alert("You need to log in to change item quantities.");
     return;
@@ -120,7 +120,7 @@ async function changeQuantity(cartItemId, change) {
 
 // Remove item from cart
 async function removeItem(cartItemId) {
-  const token = localStorage.getItem("authToken");
+  const token = sessionStorage.getItem("authToken");
   if (!token) {
     alert("You need to log in to remove items from the cart.");
     return;
@@ -162,7 +162,7 @@ function getSelectedItems() {
 // Pass items to checkout
 async function passItemsToCheckout() {
   const selectedItems = getSelectedItems();
-  const token = localStorage.getItem("authToken");
+  const token = sessionStorage.getItem("authToken");
 
   if (!token) {
     alert("You need to log in to proceed to checkout.");
