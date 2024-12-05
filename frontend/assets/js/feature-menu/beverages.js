@@ -4,7 +4,7 @@ $(function () {
   let beverageLimit = 3;
 
   axios
-    .get("http://localhost:5010/api/items/category/beverage")
+    .get("https://ecom-back-t1.netfy.app/api/items/category/beverage")
     .then((response) => {
       allBeverageData = response.data;
       displayBeverageItems(allBeverageData.slice(0, beverageLimit));
@@ -20,7 +20,7 @@ $(function () {
             <div class="card-container">
               <div class="food-card">
                 <div class="image-container">
-                  <img src="http://localhost:5010${item.item_image}" alt="${
+                  <img src="https://ecom-back-t1.netfy.app${item.item_image}" alt="${
         item.item_name
       }">
                   <div class="overlay"><p>${item.item_description}</p></div>
@@ -75,7 +75,7 @@ $(function () {
 
     axios
       .post(
-        "http://localhost:5010/api/cart/add",
+        "https://ecom-back-t1.netfy.app/api/cart/add",
         { item_id: item.item_id },
 
         {

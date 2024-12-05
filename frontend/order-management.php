@@ -120,7 +120,7 @@
     async function fetchOrdersFromBackend() {
       try {
         const response = await axios.get(
-          "http://localhost:5010/api/orders/admin/orders", {
+          "https://ecom-back-t1.netfy.app/api/orders/admin/orders", {
             headers: {
               Authorization: `Bearer ${authToken}`,
             },
@@ -163,7 +163,7 @@
     async function fetchOrderDetails(orderId) {
       try {
         const response = await axios.get(
-          `http://localhost:5010/api/orders/order-details/${orderId}`, {
+          `https://ecom-back-t1.netfy.app/api/orders/order-details/${orderId}`, {
             headers: {
               Authorization: `Bearer ${authToken}`,
             },
@@ -248,7 +248,7 @@
     async function updateOrderStatus(orderId, newStatus) {
       try {
         const response = await axios.put(
-          `http://localhost:5010/api/orders/admin/order-status/${orderId}`, {
+          `https://ecom-back-t1.netfy.app/api/orders/admin/order-status/${orderId}`, {
             newStatus
           }, {
             headers: {
@@ -302,7 +302,7 @@
             }
 
             const response = await axios.delete(
-              `http://localhost:5010/api/orders/admin/delete/${orderId}`, {
+              `https://ecom-back-t1.netfy.app/api/orders/admin/delete/${orderId}`, {
                 headers: {
                   Authorization: `Bearer ${authToken}`,
                 },
