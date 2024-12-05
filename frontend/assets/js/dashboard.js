@@ -4,14 +4,11 @@ $(function () {
   const authToken = sessionStorage.getItem("authToken");
 
   axios
-    .get(
-      "http://localhost:5010/api/orders/admin/order-status-percentages",
-      {
-        headers: {
-          Authorization: `Bearer ${authToken}`,
-        },
-      }
-    )
+    .get("https://ecom-back-t1.netfy.app/api/orders/admin/order-status-percentages", {
+      headers: {
+        Authorization: `Bearer ${authToken}`,
+      },
+    })
     .then((response) => {
       createPieChart(response.data);
     })
@@ -20,7 +17,7 @@ $(function () {
     });
 
   axios
-    .get("http://localhost:5010/api/orders/weekly-order-summary", {
+    .get("https://ecom-back-t1.netfy.app/api/orders/weekly-order-summary", {
       headers: {
         Authorization: `Bearer ${authToken}`,
       },
@@ -153,10 +150,9 @@ function createBarChart(data) {
 }
 
 function fetchOrderSummary() {
-
   const authToken = sessionStorage.getItem("authToken");
   axios
-    .get("http://localhost:5010/api/orders/admin/statistics", {
+    .get("https://ecom-back-t1.netfy.app/api/orders/admin/statistics", {
       headers: {
         Authorization: `Bearer ${authToken}`,
       },
@@ -232,7 +228,7 @@ $(function () {
             name="ruleDiscount"
             value="${discountPercentage}"
             placeholder="Enter discount percentage"
-            required
+         required
           />
         </div>
         <button type="button" class="btn btn-danger btn-sm remove-rule-button mt-2">
@@ -243,24 +239,20 @@ $(function () {
   }
 
   async function fetchOffers() {
-
     const authToken = sessionStorage.getItem("authToken");
     try {
-      const response = await axios.get(
-        "http://localhost:5010/api/promotion",
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${authToken}`,
-          },
-        }
-      );
+      const response = await axios.get("https://ecom-back-t1.netfy.app/api/promotion", {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${authToken}`,
+        },
+      });
       console.log("Fetched Offers:", response.data);
 
       offerList.empty();
       response.data.forEach((offer) => {
         const imageUrl = offer.promotion_image
-          ? `http://localhost:5010${offer.promotion_image}`
+          ? `https://ecom-back-t1.netfy.app${offer.promotion_image}`
           : "";
 
         const rulesArray = Array.isArray(offer.rules)
@@ -314,8 +306,6 @@ $(function () {
   }
 
   async function submitOfferForm() {
-  
-
     const formData = new FormData();
     formData.append("title", $("#offerTitle").val());
     formData.append("promotion_description", $("#offerDetail").val());
@@ -352,7 +342,7 @@ $(function () {
       }
 
       const response = await axios.post(
-        "http://localhost:5010/api/promotion",
+        "https://ecom-back-t1.netfy.app/api/promotion",
         formData,
         {
           headers: {
@@ -385,14 +375,11 @@ $(function () {
     if (confirm("Are you sure you want to remove this offer?")) {
       try {
         const authToken = sessionStorage.getItem("authToken");
-        await axios.delete(
-          `http://localhost:5010/api/promotion/${offerId}`,
-          {
-            headers: {
-              Authorization: `Bearer ${authToken}`,
-            },
-          }
-        );
+        await axios.delete(`https://ecom-back-t1.netfy.app/api/promotion/${offerId}`, {
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
+        });
 
         alert("Offer removed successfully!");
         fetchOffers();
@@ -407,7 +394,7 @@ $(function () {
 fetchCustomerData();
 
 function fetchCustomerData() {
-  const url = "http://localhost:5010/api/auth/users";
+  const url = "https://ecom-back-t1.netfy.app/api/auth/users";
   const authToken = sessionStorage.getItem("authToken");
 
   axios

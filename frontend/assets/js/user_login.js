@@ -23,7 +23,7 @@ $(function () {
     const password = $("#password").val();
 
     axios
-      .post("http://localhost:5010/api/auth/login", {
+      .post("https://ecom-back-t1.netfy.app/api/auth/login", {
         username,
         password,
       })

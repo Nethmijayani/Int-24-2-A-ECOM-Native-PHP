@@ -12,7 +12,7 @@ async function displaySelectedItems() {
 
   try {
     const response = await axios.get(
-      "http://localhost:5010/api/orders/checkout/selected-items",
+      "https://ecom-back-t1.netfy.app/api/orders/checkout/selected-items",
       {
         headers: {
           "Content-Type": "application/json",
@@ -45,7 +45,7 @@ async function displaySelectedItems() {
         const itemTotal = parseFloat(item.item_price) * item.quantity;
 
         const row = $("<tr>").html(`
-            <td class="custom-td-padding"><img src="http://localhost:5010${
+            <td class="custom-td-padding"><img src="https://ecom-back-t1.netfy.app${
               item.item_image
             }" alt="${item.item_name}" class="item-image"></td>
             <td class="custom-td-padding">${item.item_name}</td>
@@ -61,7 +61,7 @@ async function displaySelectedItems() {
       console.log("Selected Cart Item IDs:", selectedCartItemIds);
 
       const summaryResponse = await axios.get(
-        `http://localhost:5010/api/orders/order-summary?selectedCartItemIds=${encodeURIComponent(
+        `https://ecom-back-t1.netfy.app/api/orders/order-summary?selectedCartItemIds=${encodeURIComponent(
           JSON.stringify(selectedCartItemIds)
         )}`,
         {
@@ -145,7 +145,7 @@ async function removeItem(cartItemId) {
   }
 
   try {
-    const url = `http://localhost:5010/api/orders/checkout/remove-items-from-checkout/${cartItemId}`;
+    const url = `https://ecom-back-t1.netfy.app/api/orders/checkout/remove-items-from-checkout/${cartItemId}`;
     console.log("Removing item with URL:", url);
 
     const response = await axios.post(
@@ -190,7 +190,7 @@ $("#checkoutButton").on("click", async function () {
 
   try {
     const summaryResponse = await axios.get(
-      `http://localhost:5010/api/orders/order-summary?selectedCartItemIds=${encodeURIComponent(
+      `https://ecom-back-t1.netfy.app/api/orders/order-summary?selectedCartItemIds=${encodeURIComponent(
         JSON.stringify(selectedCartItemIds)
       )}`,
       {
@@ -217,7 +217,7 @@ $("#checkoutButton").on("click", async function () {
     console.log("Form Data with Order Summary:", formData);
 
     await axios.post(
-      "http://localhost:5010/api/orders/place",
+      "https://ecom-back-t1.netfy.app/api/orders/place",
       formData,
       {
         headers: {

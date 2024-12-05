@@ -14,7 +14,7 @@ $(function () {
       
 
       const response = await axios.get(
-        "http://localhost:5010/api/auth/admins",
+        "https://ecom-back-t1.netfy.app/api/auth/admins",
         {
           headers: {
             Authorization: `Bearer ${authToken}`,
@@ -45,7 +45,7 @@ $(function () {
 
   const appendNewAdminToTable = (admin) => {
     const imageUrl = admin.user_image
-      ? `http://localhost:5010${admin.user_image}`
+      ? `https://ecom-back-t1.netfy.app${admin.user_image}`
       : "";
 
     const adminCard = `
@@ -129,7 +129,7 @@ $(function () {
       }
 
       axios
-        .post("http://localhost:5010/api/auth/add-admin", formData, {
+        .post("https://ecom-back-t1.netfy.app/api/auth/add-admin", formData, {
           headers: {
             Authorization: `Bearer ${authToken}`,
             "Content-Type": "multipart/form-data",
@@ -157,7 +157,7 @@ $(function () {
 
     if (confirm("Are you sure you want to remove this admin?")) {
       axios
-        .delete(`http://localhost:5010/api/auth/admins/${adminId}`, {
+        .delete(`c/api/auth/admins/${adminId}`, {
           headers: {
             Authorization: `Bearer ${authToken}`,
           },

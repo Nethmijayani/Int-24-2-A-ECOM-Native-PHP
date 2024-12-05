@@ -43,7 +43,7 @@ $(function () {
     });
 
     axios
-      .post("http://localhost:5010/api/auth/register", {
+      .post("https://ecom-back-t1.netfy.app/api/auth/register", {
         email,
         username,
         password,

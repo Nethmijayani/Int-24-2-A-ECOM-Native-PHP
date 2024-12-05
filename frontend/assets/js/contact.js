@@ -16,7 +16,7 @@ $("#contactForm")
     }
 
     axios
-      .post("http://localhost:5010/api/feedback/send-feedback", {
+      .post("https://ecom-back-t1.netfy.app/api/feedback/send-feedback", {
         name,
         email,
         contactNumber,

@@ -6,7 +6,7 @@ $(function () {
   async function fetchOffers() {
     try {
       const response = await axios.get(
-        "http://localhost:5010/api/promotion",
+        "https://ecom-back-t1.netfy.app/api/promotion",
         {
           headers: {
             "Content-Type": "application/json",
@@ -17,7 +17,7 @@ $(function () {
 
       response.data.forEach((offer) => {
         const imageUrl = offer.promotion_image
-          ? `http://localhost:5010${offer.promotion_image}`
+          ? `https://ecom-back-t1.netfy.app${offer.promotion_image}`
           : "";
 
         const offerCard = `
