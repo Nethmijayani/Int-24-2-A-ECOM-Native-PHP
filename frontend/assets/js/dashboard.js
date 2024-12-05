@@ -1,12 +1,14 @@
 $(function () {
   fetchOrderSummary();
 
+  const authToken = sessionStorage.getItem("authToken");
+
   axios
     .get(
       "http://localhost:5010/api/orders/admin/order-status-percentages",
       {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+          Authorization: `Bearer ${authToken}`,
         },
       }
     )
@@ -20,7 +22,7 @@ $(function () {
   axios
     .get("http://localhost:5010/api/orders/weekly-order-summary", {
       headers: {
-        Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+        Authorization: `Bearer ${authToken}`,
       },
     })
     .then((response) => {
@@ -151,10 +153,12 @@ function createBarChart(data) {
 }
 
 function fetchOrderSummary() {
+
+  const authToken = sessionStorage.getItem("authToken");
   axios
     .get("http://localhost:5010/api/orders/admin/statistics", {
       headers: {
-        Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+        Authorization: `Bearer ${authToken}`,
       },
     })
     .then((response) => {
@@ -239,12 +243,15 @@ $(function () {
   }
 
   async function fetchOffers() {
+
+    const authToken = sessionStorage.getItem("authToken");
     try {
       const response = await axios.get(
         "http://localhost:5010/api/promotion",
         {
           headers: {
             "Content-Type": "application/json",
+            Authorization: `Bearer ${authToken}`,
           },
         }
       );
@@ -307,7 +314,7 @@ $(function () {
   }
 
   async function submitOfferForm() {
-    const token = localStorage.getItem("authToken");
+  
 
     const formData = new FormData();
     formData.append("title", $("#offerTitle").val());
@@ -339,6 +346,7 @@ $(function () {
     formData.append("rules", JSON.stringify(rules));
 
     try {
+      const authToken = sessionStorage.getItem("authToken");
       for (let [key, value] of formData.entries()) {
         console.log(`${key}:`, value);
       }
@@ -349,7 +357,7 @@ $(function () {
         {
           headers: {
             "Content-Type": "multipart/form-data",
-            Authorization: `Bearer ${token}`,
+            Authorization: `Bearer ${authToken}`,
           },
         }
       );
@@ -376,11 +384,12 @@ $(function () {
     const offerId = $(this).data("remove-id");
     if (confirm("Are you sure you want to remove this offer?")) {
       try {
+        const authToken = sessionStorage.getItem("authToken");
         await axios.delete(
           `http://localhost:5010/api/promotion/${offerId}`,
           {
             headers: {
-              Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+              Authorization: `Bearer ${authToken}`,
             },
           }
         );
@@ -399,12 +408,12 @@ fetchCustomerData();
 
 function fetchCustomerData() {
   const url = "http://localhost:5010/api/auth/users";
-  const token = localStorage.getItem("authToken");
+  const authToken = sessionStorage.getItem("authToken");
 
   axios
     .get(url, {
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${authToken}`,
         "Content-Type": "application/json",
       },
     })
