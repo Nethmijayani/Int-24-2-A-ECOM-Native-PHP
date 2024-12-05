@@ -39,8 +39,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
-    <script src="./assets/js/side-bar/sidebar.js"></script>
-
     <script src="./assets/js/dashboard.js"></script>
   </head>
   <body

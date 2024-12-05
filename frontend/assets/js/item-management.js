@@ -10,19 +10,16 @@ $(function () {
   const readDataModal = new bootstrap.Modal(
     document.getElementById("readData")
   );
-  const token = localStorage.getItem("authToken");
+  const authToken = sessionStorage.getItem("authToken");
 
   // Function to load items from the API
   const loadItems = async () => {
     try {
-      const response = await axios.get(
-        "http://localhost:5010/api/items",
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+      const response = await axios.get("http://localhost:5010/api/items", {
+        headers: {
+          Authorization: `Bearer ${authToken}`,
+        },
+      });
       tableBody.empty();
       response.data.forEach((item) => {
         const newRow = $(`
@@ -81,15 +78,12 @@ $(function () {
         `http://localhost:5010/api/items/${item_id}`,
         {
           headers: {
-            Authorization: `Bearer ${token}`,
+            Authorization: `Bearer ${authToken}`,
           },
         }
       );
       const item = response.data;
-      $("#viewImg").attr(
-        "src",
-        `http://localhost:5010${item.item_image}`
-      );
+      $("#viewImg").attr("src", `http://localhost:5010${item.item_image}`);
       $("#viewName").val(item.item_name);
       $("#viewDescription").val(item.item_description);
       $("#viewPrice").val(parseFloat(item.item_price).toFixed(2));
@@ -108,7 +102,7 @@ $(function () {
         `http://localhost:5010/api/items/${item_id}`,
         {
           headers: {
-            Authorization: `Bearer ${token}`,
+            Authorization: `Bearer ${authToken}`,
           },
         }
       );
@@ -117,10 +111,7 @@ $(function () {
       $("#description").val(item.item_description);
       $("#price").val(parseFloat(item.item_price).toFixed(2));
       $("#category").val(item.category_id);
-      imgPreview.attr(
-        "src",
-        `http://localhost:5010${item.item_image}`
-      );
+      imgPreview.attr("src", `http://localhost:5010${item.item_image}`);
       currentItemId = item_id;
       userFormModal.show();
     } catch (error) {
@@ -167,7 +158,7 @@ $(function () {
         method: method,
         url: url,
         headers: {
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${authToken}`,
         },
         data: formData,
       });
@@ -202,7 +193,7 @@ $(function () {
           `http://localhost:5010/api/items/${id}`,
           {
             headers: {
-              Authorization: `Bearer ${token}`,
+              Authorization: `Bearer ${authToken}`,
             },
           }
         );
