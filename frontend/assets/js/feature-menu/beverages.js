@@ -56,7 +56,7 @@ $(function () {
   // Handle "Order Now" button
   function handleAddToCart(event) {
     const item = JSON.parse($(event.target).attr("data-item"));
-    const token = localStorage.getItem("authToken");
+    const token = sessionStorage.getItem("authToken");
 
     if (!token) {
       localStorage.setItem("redirectAfterLogin", "index.php#menu");
@@ -69,7 +69,7 @@ $(function () {
 
   // Add item to cart
   function addToCart(item) {
-    const token = localStorage.getItem("authToken");
+    const token = sessionStorage.getItem("authToken");
     console.log("Adding item to cart:", item);
     console.log("Using token:", token);
 
