@@ -3,111 +3,108 @@ session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>YumZy - Food & Beverages</title>
-    <link rel="icon" type="image/png" href="./assets/images/yumzy-icon.png" />
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="./assets/css/checkout.css" />
-    <link rel="stylesheet" href="./assets/styles/delivery.css" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>YumZy - Food & Beverages</title>
+  <link rel="icon" type="image/png" href="./assets/images/yumzy-icon.png" />
 
-    <!-- Google Fonts -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap"
-      rel="stylesheet"
-    />
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="./assets/css/checkout.css" />
+  <link rel="stylesheet" href="./assets/css/delivery.css" />
 
-    <!-- Font-Awesome CSS -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <!-- Add Axios CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <!--J Query-->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <!-- Bootstrap CSS -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-  </head>
-  <body
-    style="
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap"
+    rel="stylesheet" />
+
+  <!-- Font-Awesome CSS -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <!-- Add Axios CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <!--J Query-->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+    rel="stylesheet" />
+</head>
+
+<body
+  style="
       font-family: 'Lato', sans-serif;
       background-image: none;
       height: 100vh;
-    "
-  >
-    <!-- Header -->
-    <?php include 'header.php'; ?>
-    
+    ">
+  <!-- Header -->
+  <?php include 'header.php'; ?>
 
-    <div class="container my-5">
-      <div class="row">
-        <div class="col-lg-8">
-          <div id="checkout-error" class="text-danger mb-3"></div>
 
-          <!-- Table for order items -->
-          <table id="checkout-table" class="table table-striped text-white">
-            <thead>
-              <tr>
-                <th></th>
-                <th>Item</th>
-                <th>Qty</th>
-                <th>Total</th>
-                <th>Remove</th>
-              </tr>
-            </thead>
-            <tbody id="order-items">
-              <!-- Items will be loaded here dynamically -->
-            </tbody>
+  <div class="container my-5">
+    <div class="row">
+      <div class="col-lg-8">
+        <div id="checkout-error" class="text-danger mb-3"></div>
+
+        <!-- Table for order items -->
+        <table id="checkout-table" class="table table-striped text-white">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Item</th>
+              <th>Qty</th>
+              <th>Total</th>
+              <th>Remove</th>
+            </tr>
+          </thead>
+          <tbody id="order-items">
+            <!-- Items will be loaded here dynamically -->
+          </tbody>
+        </table>
+        <button class="btn-add" onclick="window.location.href='cart.php'">
+          Back
+        </button>
+      </div>
+
+      <!-- Order summary -->
+      <div class="col-lg-4">
+        <div class="order-summary">
+          <h4>Order Summary</h4>
+          <table id="order-summary-table">
+            <!-- Dynamic summary content will be inserted here -->
           </table>
-          <button class="btn-add" onclick="window.location.href='cart.php'">
-            Back
+          <button
+            type="button"
+            class="btn btn-success mt-3"
+            data-bs-toggle="modal"
+            data-bs-target="#orderFormModal">
+            Open Order Form
           </button>
-        </div>
 
-        <!-- Order summary -->
-        <div class="col-lg-4">
-          <div class="order-summary">
-            <h4>Order Summary</h4>
-            <table id="order-summary-table">
-              <!-- Dynamic summary content will be inserted here -->
-            </table>
-            <button
-              type="button"
-              class="btn btn-success mt-3"
-              data-bs-toggle="modal"
-              data-bs-target="#orderFormModal"
-            >
-              Open Order Form
-            </button>
+          <!-- Order Form Modal -->
+          <div
+            class="modal fade"
+            id="orderFormModal"
+            tabindex="-1"
+            aria-labelledby="orderFormModalLabel"
+            aria-hidden="true">
 
-            <!-- Order Form Modal -->
-            <div
-              class="modal fade"
-              id="orderFormModal"
-              tabindex="-1"
-              aria-labelledby="orderFormModalLabel"
-              aria-hidden="true"
-            >
-              <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="orderFormModalLabel">
-                      Billing Address
-                    </h5>
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="modal"
-                      aria-label="Close"
-                    ></button>
-                  </div>
-                  <div class="modal-body">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="orderFormModalLabel">
+                    Billing Address
+                  </h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form class="need validation">
                     <div class="container">
                       <div class="col">
                         <div class="row">
@@ -119,8 +116,7 @@ session_start();
                               class="form-control"
                               placeholder="First name"
                               aria-label="First name"
-                              required
-                            />
+                              required />
                           </div>
                           <div class="col mb-4">
                             <label for="lastName">Last Name</label>
@@ -130,8 +126,7 @@ session_start();
                               id="lastName"
                               placeholder="Last name"
                               aria-label="Last name"
-                              required
-                            />
+                              required />
                           </div>
                         </div>
 
@@ -143,8 +138,7 @@ session_start();
                             class="form-control"
                             placeholder="you@example.com"
                             aria-label="email"
-                            required
-                          />
+                            required />
                         </div>
 
                         <div class="mb-4">
@@ -155,8 +149,7 @@ session_start();
                             id="address"
                             placeholder="1234 Main St"
                             aria-label="Address"
-                            required
-                          />
+                            required />
                         </div>
 
                         <div class="row">
@@ -171,8 +164,7 @@ session_start();
                                 placeholder="712345678"
                                 pattern="[0-9]{9}"
                                 required
-                                aria-label="Mobile number"
-                              />
+                                aria-label="Mobile number" />
                             </div>
                           </div>
                           <div class="col mb-4">
@@ -183,8 +175,7 @@ session_start();
                               class="form-control"
                               placeholder="Postal code"
                               aria-label="Postal code"
-                              required
-                            />
+                              required />
                           </div>
                         </div>
 
@@ -197,8 +188,7 @@ session_start();
                             name="paymentMethod"
                             id="creditCard"
                             checked
-                            required
-                          />
+                            required />
                           <label class="form-check-label" for="creditCard">
                             Credit card (Default)
                           </label>
@@ -209,8 +199,7 @@ session_start();
                             type="radio"
                             name="paymentMethod"
                             id="debitCard"
-                            required
-                          />
+                            required />
                           <label class="form-check-label" for="debitCard">
                             Debit card
                           </label>
@@ -224,11 +213,9 @@ session_start();
                               id="cardName"
                               class="form-control"
                               aria-label="card1"
-                              required
-                            />
+                              required />
                             <small class="text-muted">
-                              Full name, as displayed on the card</small
-                            >
+                              Full name, as displayed on the card</small>
                           </div>
 
                           <div class="col mb-4">
@@ -239,8 +226,7 @@ session_start();
                               class="form-control"
                               placeholder="1234-5678-9012"
                               aria-label="Card2"
-                              required
-                            />
+                              required />
                           </div>
                         </div>
 
@@ -252,8 +238,7 @@ session_start();
                               id="cardExpiry"
                               class="form-control"
                               aria-label="card3"
-                              required
-                            />
+                              required />
                           </div>
 
                           <div class="col mb-3">
@@ -263,8 +248,7 @@ session_start();
                               id="cardCVV"
                               class="form-control"
                               aria-label="Card4"
-                              required
-                            />
+                              required />
                           </div>
                         </div>
 
@@ -275,14 +259,13 @@ session_start();
                           <button
                             class="btn btn-primary"
                             type="button"
-                            id="checkoutButton"
-                          >
+                            id="checkoutButton">
                             Continue to Checkout
                           </button>
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </form>
                 </div>
               </div>
             </div>
@@ -290,15 +273,126 @@ session_start();
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- Footer -->
-    <?php include 'footer.php'; ?>
-   
+  <!-- Footer -->
+  <?php include 'footer.php'; ?>
 
-    <!-- External JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="./assets/widgets/contact.js"></script>
-    <script src="./assets/js/checkout.js"></script>
-  </body>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const checkoutButton = document.getElementById("checkoutButton");
+
+      checkoutButton.addEventListener("click", (event) => {
+
+        event.preventDefault();
+
+
+        document.querySelectorAll(".error-message").forEach((el) => el.remove());
+
+
+        const firstName = document.getElementById("firstName");
+        const lastName = document.getElementById("lastName");
+        const useremail = document.getElementById("useremail");
+        const address = document.getElementById("address");
+        const phoneNumber = document.getElementById("phone_number");
+        const postalCode = document.getElementById("postalCode");
+        const cardName = document.getElementById("cardName");
+        const cardNumber = document.getElementById("cardNumber");
+        const cardExpiry = document.getElementById("cardExpiry");
+        const cardCVV = document.getElementById("cardCVV");
+
+
+        let isValid = true;
+
+
+        const fields = [{
+            field: firstName,
+            message: "First Name is required"
+          },
+          {
+            field: lastName,
+            message: "Last Name is required"
+          },
+          {
+            field: useremail,
+            message: "Valid Email is required",
+            pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+          },
+          {
+            field: address,
+            message: "Address is required"
+          },
+          {
+            field: phoneNumber,
+            message: "Valid Phone Number is required",
+            pattern: /^\d{9}$/
+          },
+          {
+            field: postalCode,
+            message: "Postal Code is required"
+          },
+          {
+            field: cardName,
+            message: "Name on Card is required"
+          },
+          {
+            field: cardNumber,
+            message: "Valid Card Number is required",
+            pattern: /^\d{12,19}$/
+          },
+          {
+            field: cardExpiry,
+            message: "Expiry Date is required (MM/YY)",
+            pattern: /^(0[1-9]|1[0-2])\/?([0-9]{2})$/
+          },
+          {
+            field: cardCVV,
+            message: "CVV is required",
+            pattern: /^\d{3,4}$/
+          },
+        ];
+
+        fields.forEach(({
+          field,
+          message,
+          pattern
+        }) => {
+          if (!field.value.trim() || (pattern && !pattern.test(field.value))) {
+            isValid = false;
+
+
+            const errorMessage = document.createElement("small");
+            errorMessage.className = "error-message text-danger";
+            errorMessage.textContent = message;
+            field.parentElement.appendChild(errorMessage);
+
+
+            field.classList.add("is-invalid");
+          } else {
+
+            field.classList.remove("is-invalid");
+            field.classList.add("is-valid");
+          }
+        });
+
+
+        if (isValid) {
+          alert("Form Submitted Successfully!");
+
+        }
+      });
+    });
+  </script>
+
+
+
+
+
+  <!-- External JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="./assets/widgets/contact.js"></script>
+  <script src="./assets/js/checkout.js"></script>
+</body>
+
 </html>
