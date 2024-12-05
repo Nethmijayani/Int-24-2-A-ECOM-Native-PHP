@@ -1,4 +1,4 @@
-      <link rel="stylesheet" href="./sidebar.css" />
+      <link rel="stylesheet" href="assets/js/side-bar/sidebar.css" />
       <!-- Sidebar -->
       <div id="sidebar" class="sidebar d-flex flex-column">
         <div class="logo">
