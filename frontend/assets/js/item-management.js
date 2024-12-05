@@ -15,7 +15,7 @@ $(function () {
   // Function to load items from the API
   const loadItems = async () => {
     try {
-      const response = await axios.get("http://localhost:5010/api/items", {
+      const response = await axios.get("https://ecom-back-t1.netfy.app/api/items", {
         headers: {
           Authorization: `Bearer ${authToken}`,
         },
@@ -29,7 +29,7 @@ $(function () {
             <td>${parseFloat(item.item_price).toFixed(2)}</td>
             <td>${escapeHTML(item.category_name)}</td>
             <td>
-              <img src="http://localhost:5010${escapeHTML(
+              <img src="https://ecom-back-t1.netfy.app${escapeHTML(
                 item.item_image
               )}" alt="Item Image" width="40" height="40">
             </td>
@@ -75,7 +75,7 @@ $(function () {
   window.viewItem = async (item_id) => {
     try {
       const response = await axios.get(
-        `http://localhost:5010/api/items/${item_id}`,
+        `https://ecom-back-t1.netfy.app/api/items/${item_id}`,
         {
           headers: {
             Authorization: `Bearer ${authToken}`,
@@ -83,7 +83,7 @@ $(function () {
         }
       );
       const item = response.data;
-      $("#viewImg").attr("src", `http://localhost:5010${item.item_image}`);
+      $("#viewImg").attr("src", `https://ecom-back-t1.netfy.app${item.item_image}`);
       $("#viewName").val(item.item_name);
       $("#viewDescription").val(item.item_description);
       $("#viewPrice").val(parseFloat(item.item_price).toFixed(2));
@@ -99,7 +99,7 @@ $(function () {
   window.editItem = async (item_id) => {
     try {
       const response = await axios.get(
-        `http://localhost:5010/api/items/${item_id}`,
+        `https://ecom-back-t1.netfy.app/api/items/${item_id}`,
         {
           headers: {
             Authorization: `Bearer ${authToken}`,
@@ -111,7 +111,7 @@ $(function () {
       $("#description").val(item.item_description);
       $("#price").val(parseFloat(item.item_price).toFixed(2));
       $("#category").val(item.category_id);
-      imgPreview.attr("src", `http://localhost:5010${item.item_image}`);
+      imgPreview.attr("src", `https://ecom-back-t1.netfy.app${item.item_image}`);
       currentItemId = item_id;
       userFormModal.show();
     } catch (error) {
@@ -146,11 +146,11 @@ $(function () {
     }
 
     try {
-      let url = "http://localhost:5010/api/items";
+      let url = "https://ecom-back-t1.netfy.app/api/items";
       let method = "post";
 
       if (currentItemId) {
-        url = `http://localhost:5010/api/items/${currentItemId}`;
+        url = `https://ecom-back-t1.netfy.app/api/items/${currentItemId}`;
         method = "put";
       }
 
@@ -190,7 +190,7 @@ $(function () {
     if (confirm("Are you sure you want to delete this item?")) {
       try {
         const response = await axios.delete(
-          `http://localhost:5010/api/items/${id}`,
+          `https://ecom-back-t1.netfy.app/api/items/${id}`,
           {
             headers: {
               Authorization: `Bearer ${authToken}`,

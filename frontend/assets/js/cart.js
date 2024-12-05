@@ -11,7 +11,7 @@ async function fetchCartItems() {
 
   try {
     const response = await $.ajax({
-      url: "http://localhost:5010/api/cart",
+      url: "https://ecom-back-t1.netfy.app/api/cart",
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -42,7 +42,7 @@ function displayCartItems(items) {
     const row = $(`
       <tr>
         <td class="custom-td-padding"><input type="checkbox" class="item-checkbox" data-id="${item.cart_item_id}" data-price="${item.item_price}" /></td>
-        <td class="custom-td-padding"><img src="http://localhost:5010${item.item_image}" alt="${item.item_name}" class="item-image"></td>
+        <td class="custom-td-padding"><img src="https://ecom-back-t1.netfy.app${item.item_image}" alt="${item.item_name}" class="item-image"></td>
         <td class="custom-td-padding">${item.item_name}</td>
         <td class="custom-td-padding">Rs: ${item.item_price}</td>
         <td class="custom-td-padding">
@@ -97,7 +97,7 @@ async function changeQuantity(cartItemId, change) {
 
   try {
     await axios.put(
-      `http://localhost:5010/api/cart/update/${cartItemId}`,
+      `https://ecom-back-t1.netfy.app/api/cart/update/${cartItemId}`,
       { quantity: currentQuantity },
       {
         headers: {
@@ -127,7 +127,7 @@ async function removeItem(cartItemId) {
   }
 
   try {
-    await axios.delete(`http://localhost:5010/api/cart/delete/${cartItemId}`, {
+    await axios.delete(`https://ecom-back-t1.netfy.app/api/cart/delete/${cartItemId}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -176,7 +176,7 @@ async function passItemsToCheckout() {
 
   try {
     await axios.post(
-      "http://localhost:5010/api/orders/checkout/transfer-selected",
+      "https://ecom-back-t1.netfy.app/api/orders/checkout/transfer-selected",
       {
         selectedCartItemIds: selectedItems.map((item) => item.cart_item_id),
       },
