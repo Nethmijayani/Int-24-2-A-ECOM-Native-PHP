@@ -17,7 +17,7 @@
       href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.css"
     />
 
-    <link rel="stylesheet" href="./assets/styles/dashboard.css" />
+    <link rel="stylesheet" href="./assets/css/dashboard.css" />
     <link rel="stylesheet" href="./assets/js/side-bar/sidebar.css" />
 
     <link
@@ -38,8 +38,6 @@
     <script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-
-    <script src="./assets/widgets/side-bar/sidebar.js"></script>
 
     <script src="./assets/js/dashboard.js"></script>
   </head>
